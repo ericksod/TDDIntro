@@ -12,15 +12,15 @@ public class AccountTests {
 
     @Before
     public void setUp(){
-        initialBalance = 500;
+        initialBalance = 100;
         myAccount = new Account(initialBalance);
     }
 
     @Test
     public void shouldIncreaseMyBalanceWhenIDepositMoney(){
 
-        myAccount.deposit(10);
-        assertThat(myAccount.getBalance(), is(initialBalance + 10));
+        myAccount.deposit(50);
+        assertThat(myAccount.getBalance(), is(initialBalance + 50));
     }
 
     @Test
@@ -33,8 +33,8 @@ public class AccountTests {
 
     @Test
     public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
-        int balanceBefore = myAccount.getBalance();
-        myAccount.withdraw(1000);
-        assertThat(myAccount.getBalance(), is(balanceBefore));
+        Account newAccount = new Account(50);
+        newAccount.withdraw(100);
+        assertThat(newAccount.getBalance(), is(50));
     }
 }
