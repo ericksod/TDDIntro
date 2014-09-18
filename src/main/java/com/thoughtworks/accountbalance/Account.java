@@ -16,8 +16,12 @@ public class Account {
         return balance;
     }
     public boolean withdraw(int toRemove){
-        balance-=toRemove;
-        return true;
+        if(toRemove<=balance) {
+            balance -= toRemove;
+            return true;
+        }else{
+            return false;
+        }
     }
 
 

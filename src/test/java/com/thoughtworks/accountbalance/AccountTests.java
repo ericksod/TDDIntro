@@ -33,6 +33,8 @@ public class AccountTests {
 
     @Test
     public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
-
+        int balanceBefore = myAccount.getBalance();
+        myAccount.withdraw(1000);
+        assertThat(myAccount.getBalance(), is(balanceBefore));
     }
 }
